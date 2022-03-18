@@ -1,44 +1,48 @@
 <template>
   <div>
-    <b-container>
-      <b-row class="justify-content-center mt-4">
-        <b-col col md="4">
+    <b-container >
+      <b-row align-v="stretch" align-h="center">
+        <b-col md="4" class="mt-5 pt-5">
           <b-card
-          title="Sign In"
-          bg-variant="light">
-              <b-form @submit.prevent="checkCredentials">
-
-                <b-form-group
-                  id="input-group-1"
-                  label="User Name:"
-                  label-for="input-1"
-                  label-align="left"
+            border-variant="light"
+            align="center"
+            title="ConceptProve">
+            </b-card>
+          <b-card bg-variant="light">
+            <b-form @submit.prevent="checkCredentials">
+              <b-form-group
+                id="input-group-1"
+                label-size="sm"
+                label="User Name"
+                label-for="input-1"
+                label-align="left"
+              >
+                <b-form-input
+                  id="input-1"
+                  size="sm"
+                  v-model="credentials.userName"
+                  type="text"
+                ></b-form-input>
+              </b-form-group>
+              <b-form-group
+                label-size="sm"
+                id="input-group-2"
+                label="Password"
+                label-for="input-2"
+                label-align="left"
+              >
+                <b-form-input
+                  id="input-2"
+                  size="sm"
+                  v-model="credentials.password"
+                  type="password"
+                  required
                 >
-                  <b-form-input
-                    id="input-1"
-                    v-model="credentials.userName"
-                    type="text"
-                    placeholder="Enter User Name"
-                  ></b-form-input>
-                </b-form-group>
-                <b-form-group
-                  id="input-group-2"
-                  label="Password:"
-                  label-for="input-2"
-                  label-align="left"
-                >
-                  <b-form-input
-                    id="input-2"
-                    v-model="credentials.password"
-                    type="password"
-                    placeholder="Enter password"
-                    required
-                  >
-                  </b-form-input>
-                </b-form-group>
+                </b-form-input>
+              </b-form-group>
 
-                <b-button type="submit" variant="primary">Sign In</b-button>
-              </b-form>
+              <b-button block type="submit" variant="primary" size="sm">Sign In</b-button>
+            </b-form>
           </b-card>
         </b-col>
       </b-row>

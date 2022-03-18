@@ -1,6 +1,6 @@
 <template>
-<div>
-<b-navbar toggleable="lg" type="dark" variant="primary">
+  <div>
+    <b-navbar toggleable="lg" type="dark" variant="primary">
       <b-container>
         <b-navbar-brand to="/consults">ConceptProve</b-navbar-brand>
 
@@ -14,18 +14,14 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item-dropdown right>
-              <!-- Using 'button-content' slot -->
-              <template #button-content>
-                <em>User</em>
-              </template>
-              <b-dropdown-item to="/">Sign Out</b-dropdown-item>
-            </b-nav-item-dropdown>
+            <b-button class="my-2 my-sm-0" variant="danger" to="/login"
+              >Sing Out</b-button
+            >
           </b-navbar-nav>
         </b-collapse>
       </b-container>
     </b-navbar>
-</div>
+  </div>
 </template>
 
 <script>

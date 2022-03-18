@@ -30,8 +30,7 @@ export default new Router({
       component: Insert
     },
     {
-      path: '**',
-      component: Login
+      path: '**', redirect: "/login"
     }
   ]
 })
