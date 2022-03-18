@@ -12,11 +12,13 @@ export default new Router({
   base: __dirname,
   routes: [
     {
-      path: '',
-      component: Login
+      path: '', redirect: '/login'
     },
     {
-      path: '/',
+      path: '/', redirect: '/login'
+    },
+    {
+      path: '/login',
       component: Login
     },
     {
