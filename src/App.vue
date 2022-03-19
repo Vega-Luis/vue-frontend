@@ -6,16 +6,12 @@
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue"
+import NavBar from "./components/NavBar.vue";
 import Login from "./components/Login.vue";
 import Consults from "./components/Consults.vue";
 import Insert from "./components/Insert.vue";
+
 export default {
-  data() {
-    return {
-      currentRouteName: 'consults',
-    }
-  },
   name: "App",
   components: {
     NavBar,
@@ -25,9 +21,9 @@ export default {
   },
   computed: {
     isLoginPage() {
-      console.log(this.$route.path)
-      return this.$route.path == '/login'
-    }
-  }
+      console.log(this.$route.path);
+      return this.$route.path == "/login";
+    },
+  },
 };
 </script>

@@ -1,13 +1,10 @@
 <template>
   <div>
-    <b-container >
+    <b-container>
       <b-row align-v="stretch" align-h="center">
         <b-col md="4" class="mt-5 pt-5">
-          <b-card
-            border-variant="light"
-            align="center"
-            title="ConceptProve">
-            </b-card>
+          <b-card border-variant="light" align="center" title="ConceptProve">
+          </b-card>
           <b-card bg-variant="light">
             <b-form @submit.prevent="checkCredentials">
               <b-form-group
@@ -22,6 +19,7 @@
                   size="sm"
                   v-model="credentials.userName"
                   type="text"
+                  required
                 ></b-form-input>
               </b-form-group>
               <b-form-group
@@ -41,7 +39,9 @@
                 </b-form-input>
               </b-form-group>
 
-              <b-button block type="submit" variant="primary" size="sm">Sign In</b-button>
+              <b-button block type="submit" variant="primary" size="sm"
+                >Sign In</b-button
+              >
             </b-form>
           </b-card>
         </b-col>
