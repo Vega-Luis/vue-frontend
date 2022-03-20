@@ -27,7 +27,7 @@
               <b-col>
                 <b-form inline @submit.prevent="consultTopAmount">
                   <b-form-group>
-                    <b-form-input v-model="consult.rowAmount" type="text">
+                    <b-form-input v-model="consult.rowAmount" type="number">
                     </b-form-input>
                     <b-button type="submit" variant="secondary"
                       >Consult</b-button
@@ -49,7 +49,7 @@
 <script>
 class consult {
   constructor(pattern, rowAmount) {
-    (this.pattern = pattern || ""), (this.rowAmount = rowAmount || 1000000);
+    (this.pattern = pattern || ""), (this.rowAmount = rowAmount || 1000);
   }
 }
 
