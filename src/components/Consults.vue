@@ -74,7 +74,6 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           this.articles = data;
-          console.log(this.articles);
         });
       this.consult = new consult();
     },
@@ -91,7 +90,6 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           this.articles = data;
-          console.log(this.articles);
         });
       this.consult = new consult();
       this.row = 0;

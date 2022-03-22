@@ -75,7 +75,6 @@ export default {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.status == 200) {
             localStorage.setItem("token", data.token);
             this.$router.push("/consults");
