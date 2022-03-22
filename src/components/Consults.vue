@@ -49,7 +49,7 @@
 <script>
 class consult {
   constructor(pattern, rowAmount) {
-    (this.pattern = pattern || ""), (this.rowAmount = rowAmount || 1000);
+    (this.pattern = pattern || ""), (this.rowAmount = rowAmount);
   }
 }
 
@@ -66,6 +66,7 @@ export default {
         method: "POST",
         body: JSON.stringify(this.consult),
         headers: {
+          Authorization: localStorage.getItem("token"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -82,6 +83,7 @@ export default {
         method: "POST",
         body: JSON.stringify(this.consult),
         headers: {
+          Authorization: localStorage.getItem("token"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -94,6 +96,11 @@ export default {
       this.consult = new consult();
       this.row = 0;
     },
+  },
+  mounted() {
+    if (!localStorage.getItem("token")) {
+      this.$router.push("/login");
+    }
   },
 };
 </script>
