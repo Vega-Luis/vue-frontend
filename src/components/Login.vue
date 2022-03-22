@@ -74,14 +74,15 @@ export default {
         },
       })
         .then((res) => res.json())
-        .then(function (data) {
-          if (data.access != true) {
-            window.alert("Invalid credentials");
-          } else {
-            localStorage.setItem("logged", data.access);
+        .then((data) => {
+          if (data.status == 200) {
+            localStorage.setItem("token", data.token);
+            this.$router.push("/consults");
           }
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      this.$router.push("/consults");
       this.credentials = new credentials();
     },
   },

@@ -59,6 +59,7 @@ export default {
         method: "POST",
         body: JSON.stringify(this.article),
         headers: {
+          Authorization: localStorage.getItem("token"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -73,6 +74,11 @@ export default {
         });
       this.article = new article();
     },
+  },
+  mounted() {
+    if (!localStorage.getItem("token")) {
+      this.$router.push("/login");
+    }
   },
 };
 </script>

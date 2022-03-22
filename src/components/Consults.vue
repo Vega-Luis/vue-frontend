@@ -27,7 +27,7 @@
               <b-col>
                 <b-form inline @submit.prevent="consultTopAmount">
                   <b-form-group>
-                    <b-form-input v-model="consult.rowAmount" type="text">
+                    <b-form-input v-model="consult.rowAmount" type="number">
                     </b-form-input>
                     <b-button type="submit" variant="secondary"
                       >Consult</b-button
@@ -49,7 +49,7 @@
 <script>
 class consult {
   constructor(pattern, rowAmount) {
-    (this.pattern = pattern || ""), (this.rowAmount = rowAmount || 1000000);
+    (this.pattern = pattern || ""), (this.rowAmount = rowAmount);
   }
 }
 
@@ -66,6 +66,7 @@ export default {
         method: "POST",
         body: JSON.stringify(this.consult),
         headers: {
+          Authorization: localStorage.getItem("token"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -73,7 +74,6 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           this.articles = data;
-          console.log(this.articles);
         });
       this.consult = new consult();
     },
@@ -82,6 +82,7 @@ export default {
         method: "POST",
         body: JSON.stringify(this.consult),
         headers: {
+          Authorization: localStorage.getItem("token"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -89,11 +90,15 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           this.articles = data;
-          console.log(this.articles);
         });
       this.consult = new consult();
       this.row = 0;
     },
+  },
+  mounted() {
+    if (!localStorage.getItem("token")) {
+      this.$router.push("/login");
+    }
   },
 };
 </script>
